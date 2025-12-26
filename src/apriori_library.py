@@ -319,11 +319,13 @@ class AssociationRulesMiner:
         """
 
         fi = apriori(
-            self.basket_bool,
-            min_support=min_support,
-            use_colnames=use_colnames,
-            max_len=max_len,
-        )
+    self.basket_bool,
+    min_support=min_support,
+    use_colnames=use_colnames,
+    max_len=max_len,
+    low_memory=True
+)
+
 
         fi.sort_values(by="support", ascending=False, inplace=True)
         self.frequent_itemsets = fi
